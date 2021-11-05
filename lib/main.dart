@@ -14,37 +14,44 @@ class BottomNavBar extends StatefulWidget {
 class _BottomNavBarState extends State<BottomNavBar> {
   int pageIndex = 0;
 
-  final Home _home = Home();
-  final Citas _citas = Citas();
-  final Login _login = Login();
+//create all the pages
+  final PageHome _home = PageHome();
+  final PageCitas _citas = PageCitas();
+  final PageLogin _login = PageLogin();
 
-  // ignore: unused_field
-  Widget _showpage = new Home();
+  Widget _showPage = new PageHome();
+
   Widget _pageChooser(int page) {
     switch (page) {
       case 0:
         return _home;
+        break;
       case 1:
         return _citas;
+        break;
       case 2:
         return _login;
+        break;
       default:
-        return Container(
+        return new Container(
           child: new Center(
-            child: new Text('pagina no encontrada'),
+            child: new Text(
+              'No se encontró la pagina por el chooser',
+              textScaleFactor: 2.0,
+            ),
           ),
         );
     }
   }
 
-  GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
+  //GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         bottomNavigationBar: CurvedNavigationBar(
-          key: _bottomNavigationKey,
+          //key: _bottomNavigationKey,
           index: pageIndex,
-          height: 60.0,
+          //height: 60.0,
           items: <Widget>[
             Icon(Icons.home, size: 30),
             Icon(Icons.calendar_today, size: 30),
@@ -57,7 +64,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
           animationDuration: Duration(milliseconds: 600),
           onTap: (int tappedIndex) {
             setState(() {
-              _showpage = _pageChooser(tappedIndex);
+              _showPage = _pageChooser(tappedIndex);
             });
           },
           letIndexChange: (index) => true,
@@ -65,7 +72,9 @@ class _BottomNavBarState extends State<BottomNavBar> {
         body: Container(
           color: Colors.blueAccent,
           child: Center(
-            child: Column(
+            child: _showPage,
+
+            /*child: Column(
               children: [
                 Card(
                   shape: RoundedRectangleBorder(
@@ -76,13 +85,13 @@ class _BottomNavBarState extends State<BottomNavBar> {
                     width: 400,
                     height: 200,
                     child: Text(
-                      "Este es el contenido de la tarjeta",
+                      "Realmente es un cambio?",
                     ),
                   ),
                 )
               ],
               mainAxisAlignment: MainAxisAlignment.center,
-            ),
+            ),*/
           ),
         ));
   }

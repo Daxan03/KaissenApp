@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 
-class Home extends StatelessWidget {
+class PageHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Column(
+      child: Text(
+        "pagina de Home. Tips como en instagram",
+        textScaleFactor: 2.0,
+      ),
+
+      /*Column(
         children: [
           Card(
             shape:
@@ -23,7 +28,7 @@ class Home extends StatelessWidget {
           )
         ],
         mainAxisAlignment: MainAxisAlignment.center,
-      ),
+      ),*/
     );
   }
 }
