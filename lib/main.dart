@@ -14,7 +14,7 @@ class BottomNavBar extends StatefulWidget {
 class _BottomNavBarState extends State<BottomNavBar> {
   int pageIndex = 0;
 
-//create all the pages
+//creacion de las paginas
   final PageHome _home = PageHome();
   final PageCitas _citas = PageCitas();
   final PageLogin _login = PageLogin();
@@ -44,14 +44,12 @@ class _BottomNavBarState extends State<BottomNavBar> {
     }
   }
 
-  //GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         bottomNavigationBar: CurvedNavigationBar(
-          //key: _bottomNavigationKey,
           index: pageIndex,
-          //height: 60.0,
+          height: 60.0,
           items: <Widget>[
             Icon(Icons.home, size: 30),
             Icon(Icons.calendar_today, size: 30),
@@ -73,25 +71,6 @@ class _BottomNavBarState extends State<BottomNavBar> {
           color: Colors.blueAccent,
           child: Center(
             child: _showPage,
-
-            /*child: Column(
-              children: [
-                Card(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30)),
-                  color: Colors.white,
-                  margin: EdgeInsets.only(top: 20),
-                  child: SizedBox(
-                    width: 400,
-                    height: 200,
-                    child: Text(
-                      "Realmente es un cambio?",
-                    ),
-                  ),
-                )
-              ],
-              mainAxisAlignment: MainAxisAlignment.center,
-            ),*/
           ),
         ));
   }
