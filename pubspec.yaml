@@ -35,9 +35,13 @@ dev_dependencies:
     sdk: flutter
   curved_navigation_bar: ^1.0.1
 
+
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
-
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/icon/kaisen_icon76_round.png"
 # The following section is specific to Flutter.
 flutter:
 
