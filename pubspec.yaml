@@ -30,6 +30,7 @@ dependencies:
   cupertino_icons: ^1.0.2
 
 dev_dependencies:
+  flutter_launcher_icons: ^0.7.4
   flutter_test:
     sdk: flutter
   curved_navigation_bar: ^1.0.1
