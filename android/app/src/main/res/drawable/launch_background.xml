@@ -7,10 +7,10 @@
      <item>
         <bitmap
             android:gravity="center"
-            android:src="@mipmap/kaisen_icon_logo_160"
+            android:src="@mipmap/logo_titulo_kaisen_300"
             android:layout_width="300dp"
             android:layout_height="200dp"/>
-    </item> 
+    </item>
     <item>
         <bitmap
             android:gravity="bottom"
