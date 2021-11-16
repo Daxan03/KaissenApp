@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:logginprop/pages/citas.dart';
+import 'package:logginprop/pages/home.dart';
+import 'package:logginprop/pages/login.dart';
 
 void main() => runApp(MaterialApp(home: BottomNavBar()));
 
@@ -9,15 +12,43 @@ class BottomNavBar extends StatefulWidget {
 }
 
 class _BottomNavBarState extends State<BottomNavBar> {
-  int _page = 0;
-  GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
+  int pageIndex = 0;
+
+//creacion de las paginas
+  final PageHome _home = PageHome();
+  final PageCitas _citas = PageCitas();
+  final PageLogin _login = PageLogin();
+
+  Widget _showPage = new PageHome();
+
+  Widget _pageChooser(int page) {
+    switch (page) {
+      case 0:
+        return _home;
+        break;
+      case 1:
+        return _citas;
+        break;
+      case 2:
+        return _login;
+        break;
+      default:
+        return new Container(
+          child: new Center(
+            child: new Text(
+              'No se encontró la pagina por el chooser',
+              textScaleFactor: 2.0,
+            ),
+          ),
+        );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         bottomNavigationBar: CurvedNavigationBar(
-          key: _bottomNavigationKey,
-          index: 0,
+          index: pageIndex,
           height: 60.0,
           items: <Widget>[
             Icon(Icons.home, size: 30),
@@ -29,9 +60,9 @@ class _BottomNavBarState extends State<BottomNavBar> {
           backgroundColor: Colors.blueAccent,
           animationCurve: Curves.easeInOut,
           animationDuration: Duration(milliseconds: 600),
-          onTap: (index) {
+          onTap: (int tappedIndex) {
             setState(() {
-              _page = index;
+              _showPage = _pageChooser(tappedIndex);
             });
           },
           letIndexChange: (index) => true,
@@ -39,24 +70,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
         body: Container(
           color: Colors.blueAccent,
           child: Center(
-            child: Column(
-              children: [
-                Card(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30)),
-                  color: Colors.white,
-                  margin: EdgeInsets.only(top: 20),
-                  child: SizedBox(
-                    width: 400,
-                    height: 200,
-                    child: Text(
-                      "Este es el contenido de la tarjeta",
-                    ),
-                  ),
-                )
-              ],
-              mainAxisAlignment: MainAxisAlignment.center,
-            ),
+            child: _showPage,
           ),
         ));
   }

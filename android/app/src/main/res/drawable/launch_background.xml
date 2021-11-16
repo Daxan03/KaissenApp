@@ -2,11 +2,18 @@
 <!-- Modify this file to customize your launch splash screen -->
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:drawable="@android:color/white" />
-
+    Timer(Duration(seconds: 1);
     <!-- You can insert your own image assets here -->
-    <!-- <item>
+     <item>
         <bitmap
             android:gravity="center"
-            android:src="@mipmap/launch_image" />
-    </item> -->
+            android:src="@mipmap/logo_titulo_kaisen_300"
+            android:layout_width="300dp"
+            android:layout_height="200dp"/>
+    </item>
+    <item>
+        <bitmap
+            android:gravity="bottom"
+            android:src="@mipmap/splash_screen_icon_chiquisoft_180"/>
+    </item>
 </layer-list>
