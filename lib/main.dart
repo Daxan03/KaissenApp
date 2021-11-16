@@ -4,7 +4,12 @@ import 'package:logginprop/pages/citas.dart';
 import 'package:logginprop/pages/home.dart';
 import 'package:logginprop/pages/login.dart';
 
-void main() => runApp(MaterialApp(home: BottomNavBar()));
+void main() => runApp(
+  MaterialApp(
+    debugShowCheckedModeBanner: false,
+    home: BottomNavBar()
+    )
+  );
 
 class BottomNavBar extends StatefulWidget {
   @override
