@@ -20,11 +20,11 @@ class _BottomNavBarState extends State<BottomNavBar> {
   int pageIndex = 0;
 
 //creacion de las paginas
-  final PageHome _home = PageHome();
+  final MyCustomUI _home = MyCustomUI();
   final PageCitas _citas = PageCitas();
   final PageLogin _login = PageLogin();
 
-  Widget _showPage = new PageHome();
+  Widget _showPage = new MyCustomUI();
 
   Widget _pageChooser(int page) {
     switch (page) {
