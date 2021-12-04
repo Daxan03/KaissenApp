@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:logginprop/pages/registro.dart';
-
 import 'package:logginprop/Widgets/Header.dart';
 import 'package:logginprop/Widgets/Logo.dart';
 import 'package:logginprop/Widgets/TextFieldCustom.dart';
@@ -101,12 +99,14 @@ class _Titulo extends StatelessWidget {
 
           Text('Iniciar Sesión ', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
 
-          Text('/', style: TextStyle(fontSize: 25, color: Colors.grey)),
+         // Text('/', style: TextStyle(fontSize: 25, color: Colors.grey)),
           
+        /*
           TextButton(
            onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => RegistroPage())),
            child: Text('Registrarse', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.grey))
           )
+        */
 
         ],
       ),

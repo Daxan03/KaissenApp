@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 
-class MyCustomUI extends StatefulWidget {
+class PageHome extends StatefulWidget {
   @override
-  _MyCustomUIState createState() => _MyCustomUIState();
+  _PageHome createState() => _PageHome();
 }
 
-class _MyCustomUIState extends State<MyCustomUI>
+class _PageHome extends State<PageHome>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _animation;
@@ -50,58 +49,40 @@ class _MyCustomUIState extends State<MyCustomUI>
               searchBar(),
               SizedBox(height: _w / 20),
               groupOfCards(
-                  'Ejemplo',
+                  'Esguince',
                   'Ver mas',
-                  'assets/images/KaisenAppLogo.png',
+                  'assets/images/esguince.jpg',
                   RouteWhereYouGo(),
-                  'Ejemplo2',
+                  'Lumbalgia',
                   'Ver mas',
-                  'assets/images/KaisenAppLogo.png',
+                  'assets/images/lumbal.jpg',
+                  RouteWhereYouGo2()),
+              groupOfCards(
+                  'Parálisis facial',
+                  'Ver mas',
+                  'assets/images/paralisis.jpg',
+                  RouteWhereYouGo3(),
+                  'Prótesis',
+                  'Ver mas',
+                  'assets/images/prote.jpg',
+                  RouteWhereYouGo4()),
+              groupOfCards(
+                  'Fracturas',
+                  'Ver mas',
+                  'assets/images/fract.jpg',
+                  RouteWhereYouGo(),
+                  'Dolor cervical',
+                  'Ver mas',
+                  'assets/images/dol_cer.jpg',
                   RouteWhereYouGo()),
               groupOfCards(
-                  'Ejemplo',
+                  'Lesion deportiva',
                   'Ver mas',
-                  'assets/images/KaisenAppLogo.png',
+                  'assets/images/lesion.jpg',
                   RouteWhereYouGo(),
-                  'Ejemplo',
+                  'Tendinitis',
                   'Ver mas',
-                  'assets/images/KaisenAppLogo.png',
-                  RouteWhereYouGo()),
-              groupOfCards(
-                  'Ejemplo',
-                  'Ver mas',
-                  'assets/images/KaisenAppLogo.png',
-                  RouteWhereYouGo(),
-                  'Ejemplo',
-                  'Ver mas',
-                  'assets/images/KaisenAppLogo.png',
-                  RouteWhereYouGo()),
-              groupOfCards(
-                  'Ejemplo',
-                  'Ver mas',
-                  'assets/images/KaisenAppLogo.png',
-                  RouteWhereYouGo(),
-                  'Ejemplo',
-                  'Ver mas',
-                  'assets/images/KaisenAppLogo.png',
-                  RouteWhereYouGo()),
-              groupOfCards(
-                  'Ejemplo',
-                  'Ver mas',
-                  'assets/images/KaisenAppLogo.png',
-                  RouteWhereYouGo(),
-                  'Ejemplo',
-                  'Ver mas',
-                  'assets/images/KaisenAppLogo.png',
-                  RouteWhereYouGo()),
-              groupOfCards(
-                  'Ejemplo',
-                  'Ver mas',
-                  'assets/images/KaisenAppLogo.png',
-                  RouteWhereYouGo(),
-                  'Ejemplo',
-                  'Ver mas',
-                  'assets/images/KaisenAppLogo.png',
+                  'assets/images/tendi.jpg',
                   RouteWhereYouGo()),
             ],
           ),
@@ -157,8 +138,8 @@ class _MyCustomUIState extends State<MyCustomUI>
           Container(
             width: _w / 1.15,
             child: Text(
-              'Example Text',
-              textScaleFactor: 1.4,
+              'Servicios y tratamientos',
+              textScaleFactor: 3.4,
               style: TextStyle(
                 fontWeight: FontWeight.w600,
                 color: Colors.black.withOpacity(.7),
@@ -227,11 +208,6 @@ class _MyCustomUIState extends State<MyCustomUI>
                 alignment: Alignment.center,
                 child: Image.asset(image),
               ),
-              // Image.asset(
-              //   image,
-              //   fit: BoxFit.cover,
-              //   width: _w / 2.36,
-              //   height: _w / 2.6),
               Container(
                 height: _w / 6,
                 width: _w / 2.36,
@@ -274,10 +250,10 @@ class _MyCustomUIState extends State<MyCustomUI>
 }
 
 class MyFadeRoute extends PageRouteBuilder {
-  final Widget page;
-  final Widget route;
+  late Widget page;
+  late Widget route;
 
-  MyFadeRoute({required this.page, required this.route})
+  MyFadeRoute({page, route})
       : super(
           pageBuilder: (
             BuildContext context,
@@ -303,12 +279,12 @@ class RouteWhereYouGo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        brightness: Brightness.light,
-        backgroundColor: Colors.white,
+      //  brightness: Brightness.light,
+        backgroundColor: Colors.blueAccent,
         elevation: 50,
         centerTitle: true,
         shadowColor: Colors.black.withOpacity(.5),
-        title: Text('EXAMPLE  PAGE',
+        title: Text('Esguince',
             style: TextStyle(
                 color: Colors.black.withOpacity(.7),
                 fontWeight: FontWeight.w600,
@@ -321,8 +297,238 @@ class RouteWhereYouGo extends StatelessWidget {
           onPressed: () => Navigator.maybePop(context),
         ),
       ),
+    /*  body: Text('''Durante el examen físico, el médico revisará la inflamación y los puntos de sensibilidad en la extremidad afectada. La ubicación y la intensidad del dolor pueden ayudar a determinar la extensión y la naturaleza del daño.
+
+Las radiografías pueden ayudar a descartar una fractura u otra lesión ósea como la fuente del problema. Las imágenes por resonancia magnética (IRM) también se pueden usar para ayudar a diagnosticar la extensión de la lesión.
+        ''',
+        textAlign: TextAlign.start,
+        textScaleFactor: 1.8,
+              style: TextStyle(
+                fontWeight: FontWeight.w600,
+                color: Colors.black.withOpacity(.7),
+              ),
+        ),*/
+        body: ListView(
+       padding: EdgeInsets.all(10),
+       children: <Widget>[
+       _cardTipo1(),
+       Divider(),
+       Image(
+        image: AssetImage('assets/images/esguince.jpg'),
+        width: 100,
+      fit: BoxFit.contain,
+       ),
+       ],
+      ),
     );
   }
-}
+  }
 
 
+  Widget _cardTipo1(){
+    return Card(
+     elevation: 10.0,
+     shape: RoundedRectangleBorder(
+     borderRadius: BorderRadius.circular(20.0),
+     ),
+     child:
+Text('''Durante el examen físico, el médico revisará la inflamación y los puntos de sensibilidad en la extremidad afectada. La ubicación y la intensidad del dolor pueden ayudar a determinar la extensión y la naturaleza del daño.
+
+Las radiografías pueden ayudar a descartar una fractura u otra lesión ósea como la fuente del problema. Las imágenes por resonancia magnética (IRM) también se pueden usar para ayudar a diagnosticar la extensión de la lesión.
+        ''',
+        textAlign: TextAlign.start,
+        textScaleFactor: 1.8,
+              style: TextStyle(
+                fontWeight: FontWeight.w600,
+                color: Colors.black.withOpacity(.7),
+              ),
+        ),
+         );
+  }
+
+  class RouteWhereYouGo2 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+      //  brightness: Brightness.light,
+        backgroundColor: Colors.blueAccent,
+        elevation: 50,
+        centerTitle: true,
+        shadowColor: Colors.black.withOpacity(.5),
+        title: Text('Lumbalgia',
+            style: TextStyle(
+                color: Colors.black.withOpacity(.7),
+                fontWeight: FontWeight.w600,
+                letterSpacing: 1)),
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back,
+            color: Colors.black.withOpacity(.8),
+          ),
+          onPressed: () => Navigator.maybePop(context),
+        ),
+      ),
+        body: ListView(
+       padding: EdgeInsets.all(10),
+       children: <Widget>[
+       _cardTipo2(),
+       Divider(),
+       Image(
+        image: AssetImage('assets/images/lumbal.jpg'),
+        width: 100,
+      fit: BoxFit.contain,
+       ),
+       ],
+      ),
+    );
+  }
+  }
+
+
+  Widget _cardTipo2(){
+    return Card(
+     elevation: 10.0,
+     shape: RoundedRectangleBorder(
+     borderRadius: BorderRadius.circular(20.0),
+     ),
+     child:
+Text('''Realizar un masaje suave y relajante permite que la sensación de presión y dolor disminuya. 
+
+Ultrasonidos: Es una terapia que utiliza la vibración del sonido para provocar un efecto antiinflamatorio en la zona afectada, generando un tipo de masaje vibratorio. 
+''',
+        textAlign: TextAlign.start,
+        textScaleFactor: 1.8,
+              style: TextStyle(
+                fontWeight: FontWeight.w600,
+                color: Colors.black.withOpacity(.7),
+              ),
+        ),
+         );
+  }
+
+
+    class RouteWhereYouGo3 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+      //  brightness: Brightness.light,
+        backgroundColor: Colors.blueAccent,
+        elevation: 50,
+        centerTitle: true,
+        shadowColor: Colors.black.withOpacity(.5),
+        title: Text('Parálisis facial',
+            style: TextStyle(
+                color: Colors.black.withOpacity(.7),
+                fontWeight: FontWeight.w600,
+                letterSpacing: 1)),
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back,
+            color: Colors.black.withOpacity(.8),
+          ),
+          onPressed: () => Navigator.maybePop(context),
+        ),
+      ),
+        body: ListView(
+       padding: EdgeInsets.all(10),
+       children: <Widget>[
+       _cardTipo3(),
+       Divider(),
+       Image(
+        image: AssetImage('assets/images/paralisis.jpg'),
+        width: 100,
+      fit: BoxFit.contain,
+       ),
+       ],
+      ),
+    );
+  }
+  }
+
+
+  Widget _cardTipo3(){
+    return Card(
+     elevation: 10.0,
+     shape: RoundedRectangleBorder(
+     borderRadius: BorderRadius.circular(20.0),
+     ),
+     child:
+Text('''La parálisis facial mejora completamente sin tratamiento en la mayoría de los pacientes, pero no en todos. 
+
+Las fisioterapias como el ejercicio, la biorretroalimentación, el tratamiento con láser, la electroterapia, los masajes y la termoterapia se utilizan para acelerar la recuperación, mejorar la función facial y minimizar las secuelas.
+''',
+        textAlign: TextAlign.start,
+        textScaleFactor: 1.8,
+              style: TextStyle(
+                fontWeight: FontWeight.w600,
+                color: Colors.black.withOpacity(.7),
+              ),
+        ),
+         );
+  }
+
+
+    class RouteWhereYouGo4 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+      //  brightness: Brightness.light,
+        backgroundColor: Colors.blueAccent,
+        elevation: 50,
+        centerTitle: true,
+        shadowColor: Colors.black.withOpacity(.5),
+        title: Text('Prótesis',
+            style: TextStyle(
+                color: Colors.black.withOpacity(.7),
+                fontWeight: FontWeight.w600,
+                letterSpacing: 1)),
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back,
+            color: Colors.black.withOpacity(.8),
+          ),
+          onPressed: () => Navigator.maybePop(context),
+        ),
+      ),
+        body: ListView(
+       padding: EdgeInsets.all(10),
+       children: <Widget>[
+       _cardTipo4(),
+       Divider(),
+       Image(
+        image: AssetImage('assets/images/prote.jpg'),
+        width: 100,
+      fit: BoxFit.contain,
+       ),
+       ],
+      ),
+    );
+  }
+  }
+
+
+  Widget _cardTipo4(){
+    return Card(
+     elevation: 10.0,
+     shape: RoundedRectangleBorder(
+     borderRadius: BorderRadius.circular(20.0),
+     ),
+     child:
+Text('''Los objetivos que persigue el fisioterapeuta en este tipo de cirugía son los siguientes: 
+
+Disminuir y eliminar la inflamación de la rodilla, y con ello el dolor que presenta el paciente debido a esa hinchazón. 
+
+Tratamiento de la cicatriz para evitar posibles adherencias.
+''',
+        textAlign: TextAlign.start,
+        textScaleFactor: 1.8,
+              style: TextStyle(
+                fontWeight: FontWeight.w600,
+                color: Colors.black.withOpacity(.7),
+              ),
+        ),
+         );
+  }

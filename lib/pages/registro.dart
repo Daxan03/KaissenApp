@@ -26,7 +26,7 @@ class RegistroPage extends StatelessWidget
               ],
             ),
 
-            //_Titulo(),
+            _Titulo(),
 
             _TextField(),
 
