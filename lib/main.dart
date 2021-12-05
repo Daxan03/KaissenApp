@@ -5,11 +5,7 @@ import 'package:logginprop/pages/home.dart';
 import 'package:logginprop/pages/login.dart';
 
 void main() => runApp(
-  MaterialApp(
-    debugShowCheckedModeBanner: false,
-    home: BottomNavBar()
-    )
-  );
+    MaterialApp(debugShowCheckedModeBanner: false, home: BottomNavBar()));
 
 class BottomNavBar extends StatefulWidget {
   @override
@@ -56,13 +52,13 @@ class _BottomNavBarState extends State<BottomNavBar> {
           index: pageIndex,
           height: 60.0,
           items: <Widget>[
-            Icon(Icons.home, size: 30),
-            Icon(Icons.calendar_today, size: 30),
-            Icon(Icons.perm_identity, size: 30),
+            Icon(Icons.home, size: 30, color: Colors.white),
+            Icon(Icons.calendar_today, size: 30, color: Colors.white),
+            Icon(Icons.perm_identity, size: 30, color: Colors.white),
           ],
-          color: Colors.white,
-          buttonBackgroundColor: Colors.white,
-          backgroundColor: Colors.blueAccent,
+          color: Colors.blueAccent,
+          buttonBackgroundColor: Colors.blueAccent,
+          backgroundColor: Colors.white,
           animationCurve: Curves.easeInOut,
           animationDuration: Duration(milliseconds: 600),
           onTap: (int tappedIndex) {
