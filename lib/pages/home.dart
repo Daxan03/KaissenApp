@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 
-
 class PageHome extends StatefulWidget {
   @override
   _PageHome createState() => _PageHome();
 }
 
-class _PageHome extends State<PageHome>
-    with SingleTickerProviderStateMixin {
+class _PageHome extends State<PageHome> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _animation;
 
@@ -22,9 +20,9 @@ class _PageHome extends State<PageHome>
 
     _animation = Tween<double>(begin: 0, end: 1)
         .animate(CurvedAnimation(parent: _controller, curve: Curves.easeOut))
-          ..addListener(() {
-            setState(() {});
-          });
+      ..addListener(() {
+        setState(() {});
+      });
 
     _controller.forward();
   }
@@ -91,9 +89,9 @@ class _PageHome extends State<PageHome>
     );
   }
 
-
   Widget searchBar() {
     double _w = MediaQuery.of(context).size.width;
+    var busq;
     return Padding(
       padding: EdgeInsets.fromLTRB(_w / 20, _w / 25, _w / 20, 0),
       child: Column(
@@ -116,6 +114,7 @@ class _PageHome extends State<PageHome>
               ],
             ),
             child: TextField(
+              controller: busq,
               maxLines: 1,
               decoration: InputDecoration(
                 fillColor: Colors.transparent,
@@ -279,7 +278,7 @@ class RouteWhereYouGo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-      //  brightness: Brightness.light,
+        //  brightness: Brightness.light,
         backgroundColor: Colors.blueAccent,
         elevation: 50,
         centerTitle: true,
@@ -297,7 +296,7 @@ class RouteWhereYouGo extends StatelessWidget {
           onPressed: () => Navigator.maybePop(context),
         ),
       ),
-    /*  body: Text('''Durante el examen físico, el médico revisará la inflamación y los puntos de sensibilidad en la extremidad afectada. La ubicación y la intensidad del dolor pueden ayudar a determinar la extensión y la naturaleza del daño.
+      /*  body: Text('''Durante el examen físico, el médico revisará la inflamación y los puntos de sensibilidad en la extremidad afectada. La ubicación y la intensidad del dolor pueden ayudar a determinar la extensión y la naturaleza del daño.
 
 Las radiografías pueden ayudar a descartar una fractura u otra lesión ósea como la fuente del problema. Las imágenes por resonancia magnética (IRM) también se pueden usar para ayudar a diagnosticar la extensión de la lesión.
         ''',
@@ -308,50 +307,49 @@ Las radiografías pueden ayudar a descartar una fractura u otra lesión ósea co
                 color: Colors.black.withOpacity(.7),
               ),
         ),*/
-        body: ListView(
-       padding: EdgeInsets.all(10),
-       children: <Widget>[
-       _cardTipo1(),
-       Divider(),
-       Image(
-        image: AssetImage('assets/images/esguince.jpg'),
-        width: 100,
-      fit: BoxFit.contain,
-       ),
-       ],
+      body: ListView(
+        padding: EdgeInsets.all(10),
+        children: <Widget>[
+          _cardTipo1(),
+          Divider(),
+          Image(
+            image: AssetImage('assets/images/esguince.jpg'),
+            width: 100,
+            fit: BoxFit.contain,
+          ),
+        ],
       ),
     );
   }
-  }
+}
 
-
-  Widget _cardTipo1(){
-    return Card(
-     elevation: 10.0,
-     shape: RoundedRectangleBorder(
-     borderRadius: BorderRadius.circular(20.0),
-     ),
-     child:
-Text('''Durante el examen físico, el médico revisará la inflamación y los puntos de sensibilidad en la extremidad afectada. La ubicación y la intensidad del dolor pueden ayudar a determinar la extensión y la naturaleza del daño.
+Widget _cardTipo1() {
+  return Card(
+    elevation: 10.0,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(20.0),
+    ),
+    child: Text(
+      '''Durante el examen físico, el médico revisará la inflamación y los puntos de sensibilidad en la extremidad afectada. La ubicación y la intensidad del dolor pueden ayudar a determinar la extensión y la naturaleza del daño.
 
 Las radiografías pueden ayudar a descartar una fractura u otra lesión ósea como la fuente del problema. Las imágenes por resonancia magnética (IRM) también se pueden usar para ayudar a diagnosticar la extensión de la lesión.
         ''',
-        textAlign: TextAlign.start,
-        textScaleFactor: 1.8,
-              style: TextStyle(
-                fontWeight: FontWeight.w600,
-                color: Colors.black.withOpacity(.7),
-              ),
-        ),
-         );
-  }
+      textAlign: TextAlign.start,
+      textScaleFactor: 1.8,
+      style: TextStyle(
+        fontWeight: FontWeight.w600,
+        color: Colors.black.withOpacity(.7),
+      ),
+    ),
+  );
+}
 
-  class RouteWhereYouGo2 extends StatelessWidget {
+class RouteWhereYouGo2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-      //  brightness: Brightness.light,
+        //  brightness: Brightness.light,
         backgroundColor: Colors.blueAccent,
         elevation: 50,
         centerTitle: true,
@@ -369,51 +367,49 @@ Las radiografías pueden ayudar a descartar una fractura u otra lesión ósea co
           onPressed: () => Navigator.maybePop(context),
         ),
       ),
-        body: ListView(
-       padding: EdgeInsets.all(10),
-       children: <Widget>[
-       _cardTipo2(),
-       Divider(),
-       Image(
-        image: AssetImage('assets/images/lumbal.jpg'),
-        width: 100,
-      fit: BoxFit.contain,
-       ),
-       ],
+      body: ListView(
+        padding: EdgeInsets.all(10),
+        children: <Widget>[
+          _cardTipo2(),
+          Divider(),
+          Image(
+            image: AssetImage('assets/images/lumbal.jpg'),
+            width: 100,
+            fit: BoxFit.contain,
+          ),
+        ],
       ),
     );
   }
-  }
+}
 
-
-  Widget _cardTipo2(){
-    return Card(
-     elevation: 10.0,
-     shape: RoundedRectangleBorder(
-     borderRadius: BorderRadius.circular(20.0),
-     ),
-     child:
-Text('''Realizar un masaje suave y relajante permite que la sensación de presión y dolor disminuya. 
+Widget _cardTipo2() {
+  return Card(
+    elevation: 10.0,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(20.0),
+    ),
+    child: Text(
+      '''Realizar un masaje suave y relajante permite que la sensación de presión y dolor disminuya. 
 
 Ultrasonidos: Es una terapia que utiliza la vibración del sonido para provocar un efecto antiinflamatorio en la zona afectada, generando un tipo de masaje vibratorio. 
 ''',
-        textAlign: TextAlign.start,
-        textScaleFactor: 1.8,
-              style: TextStyle(
-                fontWeight: FontWeight.w600,
-                color: Colors.black.withOpacity(.7),
-              ),
-        ),
-         );
-  }
+      textAlign: TextAlign.start,
+      textScaleFactor: 1.8,
+      style: TextStyle(
+        fontWeight: FontWeight.w600,
+        color: Colors.black.withOpacity(.7),
+      ),
+    ),
+  );
+}
 
-
-    class RouteWhereYouGo3 extends StatelessWidget {
+class RouteWhereYouGo3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-      //  brightness: Brightness.light,
+        //  brightness: Brightness.light,
         backgroundColor: Colors.blueAccent,
         elevation: 50,
         centerTitle: true,
@@ -431,51 +427,49 @@ Ultrasonidos: Es una terapia que utiliza la vibración del sonido para provocar 
           onPressed: () => Navigator.maybePop(context),
         ),
       ),
-        body: ListView(
-       padding: EdgeInsets.all(10),
-       children: <Widget>[
-       _cardTipo3(),
-       Divider(),
-       Image(
-        image: AssetImage('assets/images/paralisis.jpg'),
-        width: 100,
-      fit: BoxFit.contain,
-       ),
-       ],
+      body: ListView(
+        padding: EdgeInsets.all(10),
+        children: <Widget>[
+          _cardTipo3(),
+          Divider(),
+          Image(
+            image: AssetImage('assets/images/paralisis.jpg'),
+            width: 100,
+            fit: BoxFit.contain,
+          ),
+        ],
       ),
     );
   }
-  }
+}
 
-
-  Widget _cardTipo3(){
-    return Card(
-     elevation: 10.0,
-     shape: RoundedRectangleBorder(
-     borderRadius: BorderRadius.circular(20.0),
-     ),
-     child:
-Text('''La parálisis facial mejora completamente sin tratamiento en la mayoría de los pacientes, pero no en todos. 
+Widget _cardTipo3() {
+  return Card(
+    elevation: 10.0,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(20.0),
+    ),
+    child: Text(
+      '''La parálisis facial mejora completamente sin tratamiento en la mayoría de los pacientes, pero no en todos. 
 
 Las fisioterapias como el ejercicio, la biorretroalimentación, el tratamiento con láser, la electroterapia, los masajes y la termoterapia se utilizan para acelerar la recuperación, mejorar la función facial y minimizar las secuelas.
 ''',
-        textAlign: TextAlign.start,
-        textScaleFactor: 1.8,
-              style: TextStyle(
-                fontWeight: FontWeight.w600,
-                color: Colors.black.withOpacity(.7),
-              ),
-        ),
-         );
-  }
+      textAlign: TextAlign.start,
+      textScaleFactor: 1.8,
+      style: TextStyle(
+        fontWeight: FontWeight.w600,
+        color: Colors.black.withOpacity(.7),
+      ),
+    ),
+  );
+}
 
-
-    class RouteWhereYouGo4 extends StatelessWidget {
+class RouteWhereYouGo4 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-      //  brightness: Brightness.light,
+        //  brightness: Brightness.light,
         backgroundColor: Colors.blueAccent,
         elevation: 50,
         centerTitle: true,
@@ -493,42 +487,41 @@ Las fisioterapias como el ejercicio, la biorretroalimentación, el tratamiento c
           onPressed: () => Navigator.maybePop(context),
         ),
       ),
-        body: ListView(
-       padding: EdgeInsets.all(10),
-       children: <Widget>[
-       _cardTipo4(),
-       Divider(),
-       Image(
-        image: AssetImage('assets/images/prote.jpg'),
-        width: 100,
-      fit: BoxFit.contain,
-       ),
-       ],
+      body: ListView(
+        padding: EdgeInsets.all(10),
+        children: <Widget>[
+          _cardTipo4(),
+          Divider(),
+          Image(
+            image: AssetImage('assets/images/prote.jpg'),
+            width: 100,
+            fit: BoxFit.contain,
+          ),
+        ],
       ),
     );
   }
-  }
+}
 
-
-  Widget _cardTipo4(){
-    return Card(
-     elevation: 10.0,
-     shape: RoundedRectangleBorder(
-     borderRadius: BorderRadius.circular(20.0),
-     ),
-     child:
-Text('''Los objetivos que persigue el fisioterapeuta en este tipo de cirugía son los siguientes: 
+Widget _cardTipo4() {
+  return Card(
+    elevation: 10.0,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(20.0),
+    ),
+    child: Text(
+      '''Los objetivos que persigue el fisioterapeuta en este tipo de cirugía son los siguientes: 
 
 Disminuir y eliminar la inflamación de la rodilla, y con ello el dolor que presenta el paciente debido a esa hinchazón. 
 
 Tratamiento de la cicatriz para evitar posibles adherencias.
 ''',
-        textAlign: TextAlign.start,
-        textScaleFactor: 1.8,
-              style: TextStyle(
-                fontWeight: FontWeight.w600,
-                color: Colors.black.withOpacity(.7),
-              ),
-        ),
-         );
-  }
+      textAlign: TextAlign.start,
+      textScaleFactor: 1.8,
+      style: TextStyle(
+        fontWeight: FontWeight.w600,
+        color: Colors.black.withOpacity(.7),
+      ),
+    ),
+  );
+}

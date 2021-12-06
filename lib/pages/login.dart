@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:logginprop/Widgets/Header.dart';
 import 'package:logginprop/Widgets/Logo.dart';
 import 'package:logginprop/Widgets/TextFieldCustom.dart';
+import 'package:logginprop/pages/citas.dart';
 
 class PageLogin extends StatelessWidget {
   @override
@@ -36,7 +37,8 @@ class _BottonSignIn extends StatelessWidget {
       child: TextButton(
         child: Text('INICIAR SESIÓN',
             style: TextStyle(color: Colors.white, fontSize: 18)),
-        onPressed: () {},
+        onPressed: () => Navigator.of(context)
+            .push(MaterialPageRoute(builder: (_) => PageCitas())),
       ),
     );
   }
@@ -88,12 +90,14 @@ class _Titulo extends StatelessWidget {
 
           // Text('/', style: TextStyle(fontSize: 25, color: Colors.grey)),
 
-          /*
-          TextButton(
-           onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => RegistroPage())),
-           child: Text('Registrarse', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.grey))
-          )
-        */
+          /*TextButton(
+              onPressed: () => Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (_) => PageCitas())),
+              child: Text('Registrarse',
+                  style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.grey)))*/
         ],
       ),
     );
