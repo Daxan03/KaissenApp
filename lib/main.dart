@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:logginprop/pages/citas.dart';
-import 'package:logginprop/pages/home.dart';
+
 import 'package:logginprop/pages/login.dart';
 
-void main() => runApp(
-    MaterialApp(debugShowCheckedModeBanner: false, home: BottomNavBar()));
+void main() =>
+    runApp(MaterialApp(debugShowCheckedModeBanner: false, home: PageLogin()));
 
-class BottomNavBar extends StatefulWidget {
+/*class BottomNavBar extends StatefulWidget {
   @override
+
+  
   _BottomNavBarState createState() => _BottomNavBarState();
 }
 
@@ -75,4 +75,4 @@ class _BottomNavBarState extends State<BottomNavBar> {
           ),
         ));
   }
-}
+}*/
